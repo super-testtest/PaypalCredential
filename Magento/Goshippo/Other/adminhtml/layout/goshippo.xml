@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <goshippo_adminhtml_index_index>
+        <reference name="content">
+             <!--   <block type="core/template" name="my-block" as="my-block" after="content"  template="goshippo2/goshippo.phtml"/> -->
+             <!--   <block type="goshippo/adminhtml_go" name="goshipptgthhh" template="goshippo2/goshippo.phtml"/> -->
+            <block type="goshippo/adminhtml_go" name="goshipptgthhh" template="goshippo/goshippo.phtml"/>
+        </reference>
+        <remove name="footer" />
+        <remove name="header" />
+        <remove name="top.menu" />
+        <remove name="menu" />
+        <remove name="top.links" />
+        <remove name="top.container" />
+    </goshippo_adminhtml_index_index>
+    <adminhtml_sales_order_view>
+        <reference name="head">
+            <action method="addJs">
+                <script>goshippo.js</script>
+            </action>
+             <action method="addJs">
+                <script>prototype/prototype.js</script>
+            </action>
+            <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
+            <action method="addCss"><name>boxes.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name><params/></action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>
+
