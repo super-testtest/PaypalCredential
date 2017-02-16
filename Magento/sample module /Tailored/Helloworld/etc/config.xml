@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<config>
+        <modules>
+            <Tailored_Helloworld>
+                    <version>1.1.1</version>
+            </Tailored_Helloworld>
+        </modules>
+        <global>
+    <blocks>
+        <helloworld>
+            <class>Tailored_Helloworld_Block</class>
+        </helloworld>
+     </blocks>
+     <helpers>
+            <helloworld>
+              <class>Tailored_Helloworld_Helper</class>
+            </helloworld>
+     </helpers>
+       <models>
+            <helloworld>
+                <class>Tailored_Helloworld_Model</class>
+                <resourceModel>helloworld_mysql4</resourceModel>
+            </helloworld>
+            <helloworld_mysql4>
+                <class>Tailored_Helloworld_Model_Mysql4</class>
+                <entities>
+                    <helloworld>
+                        <table>helloworld</table>
+                    </helloworld>
+                </entities>
+            </helloworld_mysql4>
+        </models>
+        <resources>
+            <helloworld_setup>
+                <setup>
+                    <module>Tailored_Helloworld</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </helloworld_setup>
+            <helloworld_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </helloworld_write>
+            <helloworld_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </helloworld_read>
+        </resources>
+
+        </global>
+
+       <frontend>
+        <!-- <events>
+           <controller_action_layout_load_before>
+               <observers>
+                   <my_event_name>
+                       <type>singleton</type>
+                       <class>helloworld/observer</class>
+                       <method>my_event_name</method>
+                   </my_event_name>
+               </observers>
+           </controller_action_layout_load_before>
+               </events> -->
+        <routers>
+            <helloworld>
+                <use>standard</use>
+                <args>
+                    <module>Tailored_Helloworld</module>
+                    <frontName>helloworld</frontName>
+                </args>
+            </helloworld>
+        </routers>
+        <layout>
+            <updates>
+                <helloworld>
+                      <file>helloworld.xml</file>
+                </helloworld>
+            </updates>
+        </layout>
+    </frontend>
+
+        <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <helloworld_option module="helloworld">
+                                            <title>helloworld</title>
+                                            <sort_order>50</sort_order>
+                                        </helloworld_option>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <Tailored_Helloworld>
+                            <title>stastatics</title>
+                            <sort_order>10</sort_order>
+                        </Tailored_Helloworld>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+</config>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Tailored_GoShippo>
+      <version>0.1.0</version>
+    </Tailored_GoShippo>
+  </modules>
+  <frontend>
+    <routers>
+      <goshippo>
+        <use>standard</use>
+        <args>
+          <module>Tailored_GoShippo</module>
+          <frontName>goshippo</frontName>
+        </args>
+      </goshippo>
+    </routers>
+  </frontend>
+  <global>
+     <blocks>
+            <adminhtml>
+               <rewrite>
+                   <sales_order_view>Tailored_GoShippo_Block_Adminhtml_Sales_Order_View</sales_order_view>
+               </rewrite>
+           </adminhtml>
+      <goshippo>
+        <class>Tailored_GoShippo_Block</class>
+      </goshippo>
+       </blocks>
+    <helpers>
+      <goshippo>
+        <class>Tailored_GoShippo_Helper</class>
+      </goshippo>
+    </helpers>
+    <models>
+          <goshippo>
+              <class>Tailored_GoShippo_Model</class>
+          </goshippo>
+    </models>
+  </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <goshippo_option module="goshippo">
+                                            <title>Productimage</title>
+                                            <sort_order>50</sort_order>
+                                        </goshippo_option>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <!-- <Tailored_GoShippo>
+                            <title>GoShippo</title>
+                            <sort_order>10</sort_order>
+                        </Tailored_GoShippo> -->
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+          <modules>
+            <goshippo>
+                    <files>
+                        <default>translate.csv</default>
+                    </files>
+            </goshippo>
+          </modules>
+        </translate>
+      <!--   <layout>
+            <updates>
+                <goshippo>
+                  <file>goshippo.xml</file>
+                </goshippo>
+            </updates>
+        </layout> -->
+         <events>
+      <core_block_abstract_to_html_after>
+        <observers>
+          <zeo_ocb_core_block_abstract_to_html_after>
+            <class>Tailored_GoShippo_Model_Adminhtml_Observer</class>
+            <method>addOrderCustomBlock</method>
+          </zeo_ocb_core_block_abstract_to_html_after>
+        </observers>
+      </core_block_abstract_to_html_after>
+    </events>
+    </adminhtml>
+</config>

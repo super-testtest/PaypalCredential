@@ -1,0 +1,40 @@
+<form  name="simple_contact_form" action="<?php echo $this->getUrl('helloworld/index/index'); ?>"  enctype="multipart/form-data" method="post" id="myForm">
+    <fieldset class="group-select">
+        <ul>
+            <li>
+                <div class="input-box">
+                    <label for="email">Name<span class="required">*</span></label><br />
+                    <input name="name" type="text" />
+                </div>
+                <div class="input-box">
+                    <label for="email">Address<span class="required">*</span></label><br />
+                    <input name="adderss" type="text" />
+                </div>
+                <div class="input-box">
+                    <label for="email">Image<span class="required">*</span></label><br />
+                    <input name="city" type="file"  />
+                </div>
+            </li>
+        </ul>
+    </fieldset>
+    <div class="button-set">
+        <p class="required">* Required Fields</p>
+        <button class="form-button" type="submit"><span>Submit</span></button>
+    </div>
+</form>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#myForm').on('submit',function(event) {
+            jQuery.ajax({
+            url:"<?php echo Mage::getUrl('helloworld/index/index');?>",
+            data:jQuery(this).serialize(),
+            type:'POST',
+            mimeType:"multipart/form-data",
+            success:function(data){
+                //console.log(data);
+            }
+        });
+        event.preventDefault();
+    });
+});
+</script>

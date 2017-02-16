@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<config>
+    <sales>
+        <goshippo module="goshippo">
+            <label>Goshippo settings</label>
+            <sort_order>50</sort_order>
+        </goshippo>
+    </sales>
+    <sections>
+         <carriers translate="label" module="shipping">
+            <groups>
+                <smashingmagazine_mycarrier translate="label">
+                    <label>tailored goshippo</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                        <sallowspecific translate="label">
+                            <label>Ship to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>91</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </specificcountry>
+                        <express_weight_threshold translate="label">
+                            <label>Express Weight Threshold</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </express_weight_threshold>
+                    </fields>
+                </smashingmagazine_mycarrier>
+            </groups>
+        </carriers>
+    </sections>
+    <sections>
+        <goshippo_option module="goshippo">
+		<class>separator-top</class>
+        <label>Goshippo settings</label>
+        <tab>sales</tab>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+			<groups>
+				<goshippo1>
+					<label>General setting</label>
+					<frontend_type>text</frontend_type>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>1</sort_order>
+						<!-- <fields>
+							<testmode translate="label">
+								<label>Test Mode</label>
+								<frontend_type>select</frontend_type>
+                            	<source_model>goshippo/system_config_source_testmode</source_model>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</testmode>
+						</fields> -->
+						<fields>
+							<privatetoken translate="label">
+								<label>Private token</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment></comment>
+							</privatetoken>
+						</fields>
+				</goshippo1>
+				<goshippo2>
+					<label>From address settings (to send from address in goshippo API)</label>
+					<frontend_type>text</frontend_type>
+					<show_in_default>2</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>2</sort_order>
+						<fields>
+							<name translate="label">
+								<label>Name</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>Shawn Ippotle</comment>
+							</name>
+						</fields>
+						<fields>
+							<street translate="label">
+								<label>Street</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>Broadway 1</comment>
+							</street>
+						</fields>
+						<fields>
+							<city translate="label">
+								<label>City</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>San Francisco</comment>
+							</city>
+						</fields>
+						<fields>
+							<state translate="label">
+								<label>State</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>4</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>CA</comment>
+							</state>
+						</fields>
+						<fields>
+							<zip translate="label">
+								<label>Zip</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>5</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>94117</comment>
+							</zip>
+						</fields>
+						<fields>
+							<country translate="label">
+								<label>Country</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>6</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>US</comment>
+							</country>
+						</fields>
+						<fields>
+							<phone translate="label">
+								<label>Phone</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>7</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>+1 555 341 9393</comment>
+							</phone>
+						</fields>
+						<fields>
+							<email translate="label">
+								<label>Email</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>8</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>shippotle@goshippo.com</comment>
+							</email>
+						</fields>
+				</goshippo2>
+				 <goshippo3>
+					<label>Parcel Setting</label>
+					<frontend_type>text</frontend_type>
+					<show_in_default>2</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>3</sort_order>
+
+						<fields>
+							<lenghtbelowone translate="label">
+								<label>Length For Below one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>1</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</lenghtbelowone>
+						</fields>
+						<fields>
+							<widthbelowone translate="label">
+								<label>Width For Below one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>2</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</widthbelowone>
+						</fields>
+						<fields>
+							<heightbelowone translate="label">
+								<label>Height For Below one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>3</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</heightbelowone>
+						</fields>
+						<fields>
+							<length translate="label">
+								<label>Length For one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>4</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</length>
+						</fields>
+						<fields>
+							<width translate="label">
+								<label>Width For one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>5</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</width>
+						</fields>
+						<fields>
+							<height translate="label">
+								<label>Height For one pound</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>6</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+
+							</height>
+						</fields>
+						<fields>
+							<distanceunit translate="label">
+								<label>Distance Unit</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>7</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>"cm" or "in" or "ft" or "mm" or "m" or "yd"</comment>
+							</distanceunit>
+						</fields>
+						<fields>
+							<massunit translate="label">
+								<label>Mass Unit</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>9</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+								<comment>"g" or "oz" or "lb" or "kg"</comment>
+							</massunit>
+						</fields>
+				</goshippo3>
+			</groups>
+		</goshippo_option>
+    </sections>
+</config>
+
+
+

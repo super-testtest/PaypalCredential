@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tailored_Customergroup>
+                <version>0.1.0</version>
+        </Tailored_Customergroup>
+    </modules>
+    <global>
+       <models>
+           <customergroup>
+             <class>Tailored_Customergroup_Model</class>
+           </customergroup>
+            <checkout>
+                <rewrite>
+                    <type_onepage>Tailored_Customergroup_Model_Type_Onepage</type_onepage>
+                </rewrite>
+            </checkout>
+       </models>
+        <rewrite>
+             <tailored_cutomergroup_accountcontroller>
+                <from><![CDATA[#^/customer/account/#]]></from> <!-- Mage_Checkout_OnepageController  -->
+                <to>/customergroup/account/</to> <!-- Tailored_Points_Checkout_OnepageController  -->
+            </tailored_cutomergroup_accountcontroller>
+        </rewrite>
+    </global>
+    <frontend>
+        <routers>
+            <customergroup>
+                <use>standard</use>
+                    <args>
+                       <module>Tailored_Customergroup</module>
+                       <frontName>customergroup</frontName>
+                    </args>
+            </customergroup>
+        </routers>
+            <layout>
+                <updates>
+                    <customergroup>
+                        <file>customergroup.xml</file>
+                    </customergroup>
+               </updates>
+           </layout>
+    </frontend>
+</config>
