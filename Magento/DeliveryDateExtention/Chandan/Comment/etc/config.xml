@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Chandan_Comment>
+            <version>1.0.0</version>
+        </Chandan_Comment>
+    </modules>
+    <frontend>
+        <routers>
+            <comment>
+                <use>standard</use>
+                <args>
+                    <module>Chandan_Comment</module>
+                    <frontName>comment</frontName>
+                </args>
+            </comment>
+        </routers>
+        <layout>
+            <updates>
+                <comment>
+                    <file>comment.xml</file>
+                </comment>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<comment>
+				<use>admin</use>
+				<args>
+					<module>Chandan_Comment</module>
+					<frontName>comment</frontName>
+				</args>
+			</comment>
+        </routers>
+       
+    </admin>
+    <adminhtml>
+         <layout>
+            <updates>
+                <comment>
+                    <file>comment.xml</file>
+                </comment>
+            </updates>
+        </layout>
+    </adminhtml>   
+    <global>
+
+     
+
+        <models>
+            <comment>
+                <class>Chandan_Comment_Model</class>
+                <resourceModel>comment_mysql4</resourceModel>
+            </comment>
+            <comment_mysql4>
+                <class>Chandan_Comment_Model_Mysql4</class>
+                <entities>
+                    <comment>
+                        <table>comment</table>
+                    </comment>
+                </entities>
+            </comment_mysql4>
+						
+        </models>
+		
+		
+		<events>
+            <checkout_type_onepage_save_order>
+                <observers>
+                    <chandan_comment_model_observer>
+                        <type>singleton</type>
+                        <class>Chandan_Comment_Model_Observer</class>
+                        <method>commentadd</method>
+                    </chandan_comment_model_observer>
+                </observers>
+            </checkout_type_onepage_save_order>
+        </events>
+		
+        <resources>
+            <comment_setup>
+                <setup>
+                    <module>Chandan_Comment</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </comment_setup>
+            <comment_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </comment_write>
+            <comment_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </comment_read>
+        </resources>
+        <!-- <blocks>
+            <comment>
+                <class>Chandan_Comment_Block</class>
+            </comment>
+        </blocks> -->
+        <helpers>
+            <comment>
+                <class>Chandan_Comment_Helper</class>
+            </comment>
+        </helpers>
+    </global>
+</config>
