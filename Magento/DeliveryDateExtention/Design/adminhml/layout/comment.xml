@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+ <comment_adminhtml_comment_index>
+        <reference name="content">
+            <block type="comment/adminhtml_comment" name="comment" />
+        </reference>
+
+    </comment_adminhtml_comment_index>
+     <adminhtml_sales_order_view>
+            <reference name="content">
+                <block type='adminhtml/sales_order_view_info' name="ama_additonal_data"  after="history" template="comment/comment.phtml" >
+                </block>
+            </reference>
+        </adminhtml_sales_order_view> 
+</layout>
