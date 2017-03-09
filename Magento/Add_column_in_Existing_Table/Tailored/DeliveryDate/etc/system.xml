@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <deliverydate translate="label" module="deliverydate">
+            <label>Delivry Date</label>
+            <sort_order>1</sort_order>
+        </deliverydate>
+    </tabs>
+    <sections>
+        <deliverydate translate="label" module="deliverydate">
+            <label>Delivry Date Options</label>
+            <tab>deliverydate</tab>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <deliverydate_group translate="label" module="deliverydate">
+                    <label>Delivry Date Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>					
+						<deliverydate_status translate="label">
+                            <label>Delivery Date Status: </label>                            
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </deliverydate_status>						
+                    </fields>
+                </deliverydate_group>
+            </groups>
+        </deliverydate>
+    </sections>
+</config>
